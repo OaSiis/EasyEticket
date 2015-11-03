@@ -11,7 +11,11 @@ $homeConnected = $_SESSION['connected'];
 
 $homeSession = $_SESSION;
 
+$eventRepository = $em->getRepository('ABC\eticket\Event');
+$events = $eventRepository->findAll();
+
 echo $twig->render('home.html.twig', [
     'homeConnected' => $homeConnected,
     'homeSession' => $homeSession,
+    'events' => $events,
 ]);

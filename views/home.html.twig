@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {{ parent() }} - Pokemon
+{{ parent() }} - Pokemon
 {% endblock %}
 {% block content %}
-
+{% for event in events %}
+{{ event.name }}
+{{ event.date }}
+<img src="{{ event.picture }}" alt="">
+{% endfor %}
 
 {% endblock %}
