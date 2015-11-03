@@ -15,8 +15,10 @@ $eventRepository = $em->getRepository('ABC\eticket\Event');
 
 
 $name = !empty($_POST['name']) ? $_POST['name'] : null;
+$description = !empty($_POST['description']) ? $_POST['description'] : null;
 $date = !empty($_POST['date']) ? $_POST['date'] : null;
 $picture = !empty($_POST['picture']) ? $_POST['picture'] : null;
+
 
 /**
  * Create a new event
@@ -26,7 +28,8 @@ if (null !== $name){
     $event= new Event();
     $event
         ->setName($name)
-        ->setDate($date)
+        ->setDescription($description)
+        ->setDate(new \DateTime($date))
         ->setPicture($picture)
     ;
 

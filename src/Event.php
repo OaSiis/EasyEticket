@@ -34,9 +34,9 @@ class Event {
     private $name;
 
     /**
-     * @var int
+     * @var \DateTime
      *
-     * @Column(name="date", type="integer")
+     * @Column(name="date", type="date")
      */
     private $date;
 
