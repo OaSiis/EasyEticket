@@ -27,10 +27,12 @@ if (null !== $username && null !== $password) {
     if (null !== $user) {
         $_SESSION['id'] = $user->getId();
         $_SESSION['username'] = $user->getUsername();
+        $_SESSION['role'] = $user->isRole();
         $_SESSION['connected'] = true;
-        header('location: home.php');
+        header('location: admin.php');
+
     }else{
-        $error = true;
+         $error = true;
     }
 }
 
