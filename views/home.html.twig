@@ -5,7 +5,9 @@
 {% block content %}
 {% for event in events %}
 {{ event.name }}
+
 {{ event.description }}
+
 <img src="{{ event.picture }}" alt="">
 {% endfor %}
 
