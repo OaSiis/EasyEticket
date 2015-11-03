@@ -41,6 +41,30 @@ class User
     private $password;
 
     /**
+     * @var string
+     *
+     * @Column(name="email", type="string", length=50)
+     */
+
+    private $email;
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
      * @var boolean
      *
      * @column(name="role", type="boolean")
@@ -50,6 +74,7 @@ class User
     /**
      * @return int
      */
+
     public function getId()
     {
         return $this->id;
