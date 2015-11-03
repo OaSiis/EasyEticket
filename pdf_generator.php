@@ -27,7 +27,7 @@
 
 
 // Include the main TCPDF library (search for installation path).
-require('TCPDF/examples/tcpdf_include.php');
+require_once ('vendor/tecnickcom/tcpdf/examples/tcpdf_include.php');
 
 
 // create new PDF document
