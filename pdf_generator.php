@@ -16,6 +16,13 @@
 //               info@tecnick.com
 //============================================================+
 
+require __DIR__.'/_header.php';
+
+if (empty($_SESSION['connected'])) {
+    header('Location: login.php');
+}
+
+
 /**
  * Creates an example PDF TEST document using TCPDF
  * @package com.tecnick.tcpdf
@@ -128,8 +135,12 @@ $pdf->write2DBarcode($uniqueId, 'QRCODE,L', 100, 130, 100, 50, null, 'N');
 
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output(__DIR__ .'/example_'.$uniqueId.'.pdf', 'F');
+$pdf->Output(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf', 'FI');
 
 //============================================================+
 // END OF FILE
 //============================================================+
+
+echo $twig->render('pdf.html.twig', [
+    'pdf' => $uniqueId,
+]);
