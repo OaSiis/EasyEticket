@@ -1,0 +1,15 @@
+{
+    "name": "lor/eticket",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PandumWeb",
+            "email": "lindalor.web@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "doctrine/orm": "~2.4",
+        "twig/twig": "~1.0"
+    }
+}
