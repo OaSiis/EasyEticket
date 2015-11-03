@@ -130,7 +130,7 @@ class Event {
      */
     public function getDescription()
     {
-        return $this->Description;
+        return $this->description;
     }
 
     /**
@@ -145,7 +145,5 @@ class Event {
 
         return $this;
     }
-
-
 
 }
