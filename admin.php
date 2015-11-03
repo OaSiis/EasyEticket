@@ -6,13 +6,16 @@ if (empty($_SESSION['connected'])) {
 if ( $_SESSION['role'] == 0) {
 	header('Location: home.php');
 }
-var_dump($_SESSION);
+
 $homeConnected = $_SESSION['connected'];
 
 $homeSession = $_SESSION;
 
+$Admin = $_SESSION['role'] == 1;
+
 echo $twig->render('home.html.twig', [
     'homeConnected' => $homeConnected,
     'homeSession' => $homeSession,
+    'admin' => $Admin
 ]);
 

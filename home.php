@@ -15,4 +15,3 @@ echo $twig->render('home.html.twig', [
     'homeConnected' => $homeConnected,
     'homeSession' => $homeSession,
 ]);
-var_dump($_SESSION);
