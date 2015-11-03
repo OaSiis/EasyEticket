@@ -13,9 +13,16 @@ $homeSession = $_SESSION;
 
 $Admin = $_SESSION['role'] == 1;
 
-echo $twig->render('home.html.twig', [
+$eventRepository = $em->getRepository('ABC\eticket\Event');
+$events = $eventRepository->findAll();
+$event_remove = $eventRepository->find(!empty($_GET['id']) ? $_GET['id'] : 1);
+
+
+echo $twig->render('admin.html.twig', [
     'homeConnected' => $homeConnected,
     'homeSession' => $homeSession,
-    'admin' => $Admin
+    'admin' => $Admin,
+    'events' => $events,
+    'event_remove' => $event_remove,
 ]);
 

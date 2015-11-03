@@ -36,7 +36,7 @@ class Event {
     /**
      * @var \DateTime
      *
-     * @Column(name="date", type="date")
+     * @Column(name="date", type="datetime")
      */
     private $date;
 
@@ -50,7 +50,7 @@ class Event {
      /**
      * @var string
      *
-     * @Column(name="description", type="string", length=600)
+     * @Column(name="description", type="string", length=255)
      */
     private $description;
 
@@ -130,7 +130,7 @@ class Event {
      */
     public function getDescription()
     {
-        return $this->Description;
+        return $this->description;
     }
 
     /**

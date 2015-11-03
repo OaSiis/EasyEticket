@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+ <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+          <tr>
+            <td>{{event.name}}</td>
+            <td>{{event.description}}</td>
+            <td><a href="remove_event.php?id={{ event.id }}">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}
