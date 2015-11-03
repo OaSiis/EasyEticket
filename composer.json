@@ -12,5 +12,15 @@
         "doctrine/orm": "~2.4",
         "twig/twig": "~1.0",
         "swiftmailer/swiftmailer": "~5.4"
+
+    },
+
+    "autoload": {
+      "psr-4": {
+        "Cartman\\Init\\": "src"
+      }
+    },
+    "config": {
+      "bin-dir": "bin"
     }
 }
