@@ -29,7 +29,7 @@ class User
     /**
      * @var string
      *
-     * @Column(name="username", type="string", length=50, unique=true)
+     * @Column(name="username", type="string", length=50)
      */
     private $username;
 
@@ -43,33 +43,16 @@ class User
     /**
      * @var string
      *
-     * @Column(name="email", type="string", length=50)
+     * @Column(name="email", type="string", length=150, unique=true)
      */
-
     private $email;
-
-    /**
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
 
     /**
      * @var boolean
      *
      * @column(name="role", type="boolean")
      */
-    private $role;
+    private $role = 0;
 
     /**
      * @return int
@@ -90,10 +73,14 @@ class User
 
     /**
      * @param string $username
+     *
+     * @return User
      */
     public function setUsername($username)
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -106,10 +93,14 @@ class User
 
     /**
      * @param string $password
+     *
+     * @return User
      */
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
     }
 
     /**
@@ -126,6 +117,26 @@ class User
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     *
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
     }
 
 }

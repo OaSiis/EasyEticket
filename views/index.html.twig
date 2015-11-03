@@ -1,13 +1,9 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}
+    {{ parent() }} - Index
+{% endblock %}
 {% block content %}
-    <h1>Accueil</h1>
-{% if session is not empty %}
-    <h2>Welcome {{ username }}  </h2>
-        {% endif %}
-    <a href="http://localhost/eticket/logout.php">logout</a>
 
-
-    <a href="http://localhost/eticket/login.php">login</a>
+    <img src="image/concertmusic.jpg" />
 
 {% endblock %}
