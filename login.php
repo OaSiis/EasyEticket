@@ -4,7 +4,7 @@ require __DIR__.'/_header.php';
 
 /** Protection */
 if (!empty($_SESSION['connected'])) {
-    header('Location: new_pokemon.php');
+    header('Location: home.php');
 }
 
 use \ABC\eticket\User;
@@ -18,7 +18,7 @@ $password = !empty($_POST['password']) ? $_POST['password'] : null;
  */
 if (null !== $username && null !== $password) {
     /** @var \Doctrine\ORM\EntityRepository $userRepository */
-    $userRepository = $em->getRepository('Cartman\Init\User');
+    $userRepository = $em->getRepository('ABC\eticket\User');
     /** @var User|null $user */
     $user = $userRepository->findOneBy([
         'username' => $username,
@@ -28,7 +28,7 @@ if (null !== $username && null !== $password) {
         $_SESSION['id'] = $user->getId();
         $_SESSION['username'] = $user->getUsername();
         $_SESSION['connected'] = true;
-        header('location: index.php');
+        header('location: home.php');
     }else{
         $error = true;
     }

@@ -5,7 +5,7 @@ require __DIR__.'/_header.php';
 
 /** Protection */
 if (!empty($_SESSION['connected'])) {
-    header('Location: new_user.php');
+    header('Location: home.php');
 }
 
 use \ABC\eticket\User;
