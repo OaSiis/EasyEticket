@@ -47,6 +47,14 @@ class Event {
      */
     private $picture;
 
+     /**
+     * @var string
+     *
+     * @Column(name="description", type="string", length=600)
+     */
+    private $description;
+
+
     /**
      * @return int
      */
@@ -116,6 +124,28 @@ class Event {
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->Description;
+    }
+
+    /**
+     * @param string $description
+     *
+     *
+     * @return Event
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
 
 
 }
