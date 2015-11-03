@@ -27,7 +27,7 @@
 
 
 // Include the main TCPDF library (search for installation path).
-require('TCPDF/examples/tcpdf_include.php');
+require __DIR__.'/vendor/autoload.php';
 
 
 // create new PDF document

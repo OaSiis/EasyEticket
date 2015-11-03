@@ -12,7 +12,8 @@
         "doctrine/orm": "~2.4",
         "twig/twig": "~1.0",
         "swiftmailer/swiftmailer": "~5.4",
-        "mandrill/mandrill": "1.0.*"
+        "mandrill/mandrill": "1.0.*",
+        "tecnickcom/tcpdf": "~6.2"
     },
 
     "autoload": {
