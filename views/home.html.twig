@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ parent() }} - Pokemon
+{% endblock %}
+{% block content %}
+{% for event in events %}
+{{ event.name }}
+
+{{ event.description }}
+
+<img src="{{ event.picture }}" alt="">
+{% endfor %}
+
+{% endblock %}
