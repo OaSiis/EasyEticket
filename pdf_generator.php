@@ -98,7 +98,7 @@ $pdf->AddPage();
 
 //
 
-
+$username = $_SESSION['username'];
 
 
 // set text shadow effect
@@ -111,7 +111,7 @@ $html = <<<EOD
 <i>YOLYOYLYLYOYLYOLYOLYOLYOLYOYLOYLYOLYOLYOYLOYLYOYLYLOYLO.</i>
 <p>ThisPATATEl
 <br>
-My user ! :D
+$username
 <br>
 s</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
 <p>Please check the source code documentation and other examples for further information.</p>
@@ -140,7 +140,3 @@ $pdf->Output(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf', 'FI');
 //============================================================+
 // END OF FILE
 //============================================================+
-
-echo $twig->render('pdf.html.twig', [
-    'pdf' => $uniqueId,
-]);
