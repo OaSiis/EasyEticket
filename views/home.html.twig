@@ -1,16 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-{{ parent() }} - Pokemon
+    {{ parent() }} - Event
 {% endblock %}
 {% block content %}
-{% for event in events %}
-{{ event.name }}
+    <div class="container">
+        <div class="row">
+            <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                <ul class="event-list">
+                    {% for event in events %}
 
-{{ event.description }}
+                        <li>
+                            <time datetime="2014-07-31 1600">
+                                <div style="font-size:18px"> {{ event.date|localizeddate('short', 'none', 'en') }}</div>
+                            </time>
+                            <img alt="Disney Junior Live On Tour!" src="{{ event.picture }}"/>
 
-<img src="{{ event.picture }}" alt="">
+                            <div class="info">
+                                <h2 class="title">{{ event.name }}</h2>
 
-    <a href="pdf_generator.php">PDF</a>
-{% endfor %}
+                                <p class="desc">{{ event.description }}</p>
+                                <ul>
+                                    <li style="width:33%;">{{ event.localisation }}</li>
+                                    <li style="width:34%;">{{ event.price }}€<span class="fa fa-child"></span></li>
+                                </ul>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <li style="width:33%;"><a href="pdf_generator.php">PDF</a></li>
+                                </ul>
+                            </div>
+                        </li>
 
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

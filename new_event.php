@@ -18,6 +18,8 @@ $name = !empty($_POST['name']) ? $_POST['name'] : null;
 $description = !empty($_POST['description']) ? $_POST['description'] : null;
 $date = !empty($_POST['date']) ? $_POST['date'] : null;
 $picture = !empty($_POST['picture']) ? $_POST['picture'] : null;
+$price= !empty($_POST['price']) ? $_POST['price'] : null;
+$localisation= !empty($_POST['localisation']) ? $_POST['localisation'] : null;
 
 
 /**
@@ -31,6 +33,8 @@ if (null !== $name){
         ->setDescription($description)
         ->setDate(new \DateTime($date))
         ->setPicture($picture)
+        ->setPrice($price)
+        ->setLocalisation($localisation)
     ;
 
     $em->persist($event);
