@@ -101,7 +101,7 @@ $pdf->AddPage();
 
 $username = $_SESSION['username'];
 
- use ABC\eticket\Event;
+use ABC\eticket\Event;
 $eventRepository = $em->getRepository('ABC\eticket\Event');
 new Event();
 $events = $eventRepository->findOneBy(array('id' => $_GET['id']));
@@ -167,3 +167,42 @@ echo $twig->render('pdf_generator.html.twig', [
     'homeConnected' => $homeConnected,
     'homeSession' => $homeSession,
 ]);
+
+
+use ABC\eticket\User;
+$userRepository = $em->getRepository('ABC\eticket\User');
+new User();
+$user = $userRepository->findOneBy([ 'id' => $_SESSION['id']]);
+$email = $user->getEmail();
+$name = $user->getUsername();
+
+
+
+require_once 'vendor/swiftmailer/swiftmailer/lib/swift_required.php';
+$transport = Swift_SmtpTransport::newInstance('smtp.mandrillapp.com', 587)
+    ->setUsername('drow78630@hotmail.fr')
+    ->setPassword('K5dEE_ophID5Lxkq32zv6w');
+$mailer = Swift_Mailer::newInstance($transport);
+$message = Swift_Message::newInstance('Wonderful Subject')
+    ->setFrom(array('drow78630@hotmail.fr' => 'John Doe'))
+
+    ->setTo(array($email => 'John Doe'));
+
+$message->setBody('<html>
+    <body>
+        <h2>Hi John!</h2><br><br>
+        Johanna (johanna82) sent you a message.<br>
+        <p>
+        	Hi John. Amazing picture... <a href="http://www.awesome.com/msg/12345/read/">login and read the full message</a>
+        </p>
+        Best regards,<br>
+        Photos4Lulz
+    </body>
+</html>');
+$message->attach(Swift_Attachment::fromPath(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf'));
+
+if (!$mailer->send($message, $errors))
+{
+    echo "Error:";
+    print_r($errors);
+}
