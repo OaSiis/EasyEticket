@@ -16,8 +16,8 @@
             <td>{{event.name}}</td>
             <td>{{event.description}}</td>
             <td>{{event.price}} €</td>
-            <td>{{event.localisation}} €</td>
-            <td><a href="remove_event.php?id={{ event.id }}">Delete</a></td>
+            <td>{{event.localisation}}</td>
+            <td><a href="remove_event.php?id={{ event.id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
           </tr>
           {% endfor %}
         </tbody>

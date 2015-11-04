@@ -184,19 +184,19 @@ $transport = Swift_SmtpTransport::newInstance('smtp.mandrillapp.com', 587)
     ->setPassword('K5dEE_ophID5Lxkq32zv6w');
 $mailer = Swift_Mailer::newInstance($transport);
 $message = Swift_Message::newInstance('Wonderful Subject')
-    ->setFrom(array('drow78630@hotmail.fr' => 'John Doe'))
+    ->setFrom(array('drow78630@hotmail.fr' => 'Axel'))
 
     ->setTo(array($email => 'John Doe'));
 
 $message->setBody('<html>
     <body>
-        <h2>Hi John!</h2><br><br>
-        Johanna (johanna82) sent you a message.<br>
+        <h2>Hi $name</h2><br><br>
+        Axel sent you a message.<br>
         <p>
-        	Hi John. Amazing picture... <a href="http://www.awesome.com/msg/12345/read/">login and read the full message</a>
+        	Hi $name. Here is your e-ticket for the event you purchased. Enjoy your event! </a>
         </p>
         Best regards,<br>
-        Photos4Lulz
+        Axel
     </body>
 </html>');
 $message->attach(Swift_Attachment::fromPath(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf'));
