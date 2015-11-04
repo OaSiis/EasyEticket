@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'login_navbar.html.twig' %}
 {% block content %}
 
 <div class="container">
-<h1>Entre tes identifiants</h1>
+<h1>Login</h1>
         <form method="post">
     <div class="form-group">
         <label for="username">Username: </label>
@@ -21,5 +21,6 @@
     </div>
     <button type="submit" class="btn btn-primary" name="loginSubmit">Send</button>
     </form>
+    <small class="pull-right"><a href="register.php">Sign up</a></small>
     </div>
     {% endblock %}

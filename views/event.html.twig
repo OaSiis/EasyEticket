@@ -4,13 +4,39 @@
 {% endblock %}
 {% block content %}
 
-        {{ event.name }}
+    <div class="container">
+        <div class="row">
+            <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                <ul class="event-list">
 
-        {{ event.description }}
 
-        <img src="{{ event.picture }}" alt="">
+                        <li>
+                            <time datetime="2014-07-31 1600">
+                                <div style="font-size:18px"> {{ event.date|localizeddate('short', 'none', 'en') }}</div>
+                            </time>
+                            <img alt="" src="{{ event.picture }}"/>
 
-        <button class="btn-default"><a href="pdf_generator.php?id={{ event.id }}">PDF</a></button>
+                            <div class="info">
+                                <h2 class="title">{{ event.name }}</h2>
+
+                                <p class="desc">{{ event.description }}</p>
+                                <ul>
+                                    <li style="width:33%;">{{ event.localisation }}</li>
+                                    <li style="width:34%;">{{ event.price }}€<span class="fa fa-child"></span></li>
+                                </ul>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <button class="btn-primary event_button"><a href="pdf_generator.php?id={{ event.id }}">PDF</a></button>
+                                </ul>
+                            </div>
+                        </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
 
 
 {% endblock %}

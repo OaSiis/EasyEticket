@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!--<link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css">-->
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
 </head>
 <body>
 <!-- Fixed navbar -->
@@ -37,10 +36,9 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if homeConnected %}
                     <li><a href="#">Welcome {{ homeSession.username }}!</a></li>
-                    <li><a href="logout.php">Logout</a></li>
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span></a></li>
                 {% else %}
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="register.php">Inscription</a></li>
+                    <li><a href="register.php">Sign up</a></li>
                     <li><a href="login.php">Login</a></li>
                     {{ homeConnected }}
                 {% endif %}

@@ -183,6 +183,20 @@
 		}
 	}
 
- #date{
-     font-size: 18px;
+.event_button{
+     position: absolute;
+     top: 40px;
+
  }
+
+.event_button a{
+    color: #fff;
+}
+
+.event_button a:hover{
+    text-decoration: none;
+}
+
+.glyphicon-off{
+    color: darkred;
+}
