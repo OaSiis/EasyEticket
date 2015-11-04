@@ -16,4 +16,4 @@ $twig = new Twig_Environment($loader,[
 //'cache' => null,
 ]);
 
-
+$twig->addExtension(new Twig_Extensions_Extension_Intl());

@@ -5,7 +5,9 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Options</th>
+            <th>Price</th>
+            <th>Localisation</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -13,6 +15,8 @@
           <tr>
             <td>{{event.name}}</td>
             <td>{{event.description}}</td>
+            <td>{{event.price}} €</td>
+            <td>{{event.localisation}} €</td>
             <td><a href="remove_event.php?id={{ event.id }}">Delete</a></td>
           </tr>
           {% endfor %}

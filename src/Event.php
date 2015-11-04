@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Maximilien
- * Date: 03/11/2015
- * Time: 15:57
- */
+
 
 namespace ABC\eticket;
 
@@ -54,6 +49,25 @@ class Event {
      */
     private $description;
 
+    /**
+     * @var int
+     *
+     * @Column(name="price", type="integer")
+     */
+    private $price;
+
+   
+    /**
+     * @var string
+     *
+     * @Column(name="localisation", type="string", length=25)
+     */
+    private $localisation;
+
+
+
+
+
 
     /**
      * @return int
@@ -85,7 +99,7 @@ class Event {
     }
 
     /**
-     * @return int
+     * @return dateTime
      */
     public function getDate()
     {
@@ -93,7 +107,7 @@ class Event {
     }
 
     /**
-     * @param int $date
+     * @param dateTime $date
      *
      * @return Event
      */
@@ -145,5 +159,49 @@ class Event {
 
         return $this;
     }
+
+     /**
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     *
+     *
+     * @return Event
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
+    }
+
+    /**
+     * @param string $localisation
+     *
+     *
+     * @return Event
+     */
+    public function setLocalisation($localisation)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
 
 }

@@ -7,8 +7,7 @@ $em = require __DIR__.'/bootstrap.php';
 $articleRepository = $em->getRepository('PandumWeb\Init\Article');
 
 /** @var \PandumWeb\Init\Article $article */
-$article = $articleRepository->find(3);
+$event = $eventRepository->find(!empty($_GET['id']) ? $_GET['id'] : 1);
 
-$article->setTitle('plop');
 
 $em->flush();
