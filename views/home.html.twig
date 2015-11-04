@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-{{ parent() }} - Pokemon
+{{ parent() }} - Home
 {% endblock %}
 {% block content %}
 {% for event in events %}
@@ -10,7 +10,7 @@
 
 <img src="{{ event.picture }}" alt="">
 
-    <a href="pdf_generator.php">PDF</a>
+   <button class="btn-default"><a href="event.php?id={{ event.id }}">Detail</a></button>
 {% endfor %}
 
 {% endblock %}

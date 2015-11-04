@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Event{{ event.id }}
+{% endblock %}
+{% block content %}
+
+        {{ event.name }}
+
+        {{ event.description }}
+
+        <img src="{{ event.picture }}" alt="">
+
+        <button class="btn-default"><a href="pdf_generator.php?id={{ event.id }}">PDF</a></button>
+
+
+{% endblock %}

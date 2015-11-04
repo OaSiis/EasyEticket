@@ -98,7 +98,24 @@ $pdf->AddPage();
 
 //
 
+
 $username = $_SESSION['username'];
+
+ use ABC\eticket\Event;
+$eventRepository = $em->getRepository('ABC\eticket\Event');
+new Event();
+$events = $eventRepository->findOneBy(array('id' => $_GET['id']));
+
+$title = $events->getName();
+
+$image = $events->getPicture();
+
+$desc = $events->getDescription();
+$datetime = new DateTime();
+
+
+
+
 
 
 // set text shadow effect
@@ -107,15 +124,16 @@ $username = $_SESSION['username'];
 
 // Set some content to print
 $html = <<<EOD
-<h1>Welcome to <a href="http://www.tcpdf.org" style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;<span style="color:black;">TC</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
-<i>YOLYOYLYLYOYLYOLYOLYOLYOLYOYLOYLYOLYOLYOYLOYLYOYLYLOYLO.</i>
-<p>ThisPATATEl
+<img src="$image"></img>
+<h1 style="text-decoration:none;color:black; margin-top: 200px;">&nbsp;<span style="color:black;">Invitation $title</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
+<h2>Bonjour Monsieur,Madame $username</h2>
+<p>Ce ticket est nécessaire à l'entrée sur le site de l'évènement, veuillez ne pas vous en séparer. Une vérification sera effectuée avant l'entrée.</p>
+<p>Description : $desc</p>
 <br>
-$username
+
+
 <br>
-s</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
-<p>Please check the source code documentation and other examples for further information.</p>
-<p style="color:#CC0000;">TO IMPROVE AND EXPAND TCPDF I NEED YOUR SUPPORT, PLEASE </p>
+
 
 EOD;
 
@@ -129,14 +147,23 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 0, 0, true, '', true);
 
 $uniqueId = uniqid();
 
-$pdf->write2DBarcode($uniqueId, 'QRCODE,L', 100, 130, 100, 50, null, 'N');
+$pdf->write2DBarcode($uniqueId, 'QRCODE,L', 0, 200, 100, 50, null, 'N');
 
 
 
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf', 'FI');
+$pdf->Output(__DIR__ .'/pdf/example_'.$uniqueId.'.pdf', 'F');
 
 //============================================================+
 // END OF FILE
 //============================================================+
+
+$homeConnected = $_SESSION['connected'];
+
+$homeSession = $_SESSION;
+
+echo $twig->render('pdf_generator.html.twig', [
+    'homeConnected' => $homeConnected,
+    'homeSession' => $homeSession,
+]);
